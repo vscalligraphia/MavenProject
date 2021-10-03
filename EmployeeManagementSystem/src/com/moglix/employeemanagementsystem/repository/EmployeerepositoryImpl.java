@@ -1,10 +1,10 @@
 package com.moglix.employeemanagementsystem.repository;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.moglix.employeemanagementsystem.dto.Employee;
-import com.moglix.employeemanagementsystem.service.EmployeeService;
 
 public class EmployeerepositoryImpl implements EmployeeRepository {
 
@@ -37,13 +37,14 @@ public class EmployeerepositoryImpl implements EmployeeRepository {
 	//Employee employees[] = new Employee[10];
 	
 	
-	private List<Employee>  employees = new ArrayList<>();
+	//private List<Employee>  employees = new ArrayList<>();
+	private List<Employee>  employees = new LinkedList<>();
 	
 	@Override
 	public String addEmpployee(Employee employee) {
 		boolean result = employees.add(employee);
 		if(result) {
-			return "Successed";
+			return "Successeds";
 			
 		}
 		else
@@ -110,8 +111,7 @@ public class EmployeerepositoryImpl implements EmployeeRepository {
 
 	@Override
 	public void deleteAllEmployees() {
-		// TODO Auto-generated method stub
-		employees= null;
+		employees.clear();
 
 	}
 
@@ -125,22 +125,43 @@ public class EmployeerepositoryImpl implements EmployeeRepository {
 
 	@Override
 	public Employee getEmployeeById(String id) {
-		// TODO Auto-generated method stub
+		
+		for (Employee employee : employees) {
+			if(id.equals(employee.getEmpID()))
+				return employee;
+		}
+		
 		return null;
 	}
 
 
 	@Override
-	public Employee[] getEmployees() {
+	public List<Employee> getEmployees() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		System.out.println("Hello");
+		return employees;
 	}
 
 
 	@Override
 	public String deleteEmployeeById(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		Employee employee = this.getEmployeeById(id);
+				
+				if(employee!=null) {
+					if(employees.remove(employee)) 
+					{
+						return "Successsssss";
+						
+					}
+					else
+						return "failllll";
+				}
+				else {
+					return "Not foundddddd";
+				}
+		
+		}
 
 }

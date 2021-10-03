@@ -1,6 +1,7 @@
 package com.moglix.employeemanagementsystem.dto;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
+	
 	
 	private String empID;
 	private String empFirstName;
@@ -95,6 +96,12 @@ public class Employee {
 		float da=(float) ((10*empSalary)/100);
 		float netsalary=(float) (hra+ta+da+empSalary);
 		return netsalary;
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		// TODO Auto-generated method stub
+		return this.empID.compareTo(o.getEmpID());
 	}
 	
 	

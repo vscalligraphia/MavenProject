@@ -1,10 +1,11 @@
 package com.moglix.employeemanagementsystem.service;
 
+import java.util.List;
+
 import com.moglix.employeemanagementsystem.dto.Employee;
 import com.moglix.employeemanagementsystem.repository.EmployeeDAO;
 import com.moglix.employeemanagementsystem.repository.EmployeeRepository;
 import com.moglix.employeemanagementsystem.repository.EmployeerepositoryImpl;
-import com.moglix.employeemanagementsystem.service.EmployeeServiceDemo;
 
 public class EmployeeService implements EmployeeServiceImpl {
 	
@@ -57,19 +58,19 @@ public class EmployeeService implements EmployeeServiceImpl {
 	}
 
 	@Override
-	public Employee[] getEmployees() {
-		return employeeDAO.geteEmployees();
+	public List<Employee> getEmployees() {
+		return employeeRepository.getEmployees();
 	}
 
 	@Override
 	public String deleteEmployeeById(String id) {
-		return employeeDAO.deleteEmployeeById(id);
+		return employeeRepository.deleteEmployeeById(id);
 	}
 	
 
 	@Override
 	public void deleteAllEmployees() {
-		employeeDAO.deleteAllEmployees();
+		employeeRepository.deleteAllEmployees();
 
 	}
 

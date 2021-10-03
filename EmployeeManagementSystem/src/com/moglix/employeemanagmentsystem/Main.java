@@ -1,5 +1,7 @@
 package com.moglix.employeemanagmentsystem;
 
+import java.util.List;
+
 import com.moglix.employeemanagementsystem.dto.Employee;
 import com.moglix.employeemanagementsystem.service.EmployeeService;
 import com.moglix.employeemanagementsystem.service.EmployeeServiceImpl;
@@ -22,14 +24,30 @@ public class Main {
 		employee.setAadhar("123456332");
 		employee.setAddress("H>NO>100");
 
-		// System.out.println(employee.getEmpID());
-		// System.out.println(employee.getEmpSalary());
+		System.out.println(employee.getEmpID());
+		System.out.println(employee.getEmpSalary());
 
 		
 		  
 		  String result = employeeServiceDemo.addEmpployee(employee);
 		  System.out.println(result);
 		 
+//		  List<Employee> yut = ;
+//		  
+//		  String result2=EmployeeServiceImpl.deleteEmployeeById("123");
+//		  System.out.println(result2); 
+//		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  String result2= employeeServiceDemo.deleteEmployeeById("123");
+		  System.out.println(result2+"\nDELETED");
+		  
 		 
 
 		Employee employee2 = employeeServiceDemo.getEmployeeById("123");
@@ -44,8 +62,10 @@ public class Main {
 			System.out.println("EXISTS");
 		}
 
-		Employee employees[] = employeeServiceDemo.getEmployees();
-
+		List<Employee> employees = employeeServiceDemo.getEmployees();
+		
+		
+		System.out.println("EMPLoYEE");
 		for (Employee employee3 : employees) {
 			if (employee3 != null) {
 				System.out.println(employee3);
