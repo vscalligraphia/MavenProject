@@ -1,8 +1,0 @@
-package com.moglix.employeemanagementsystem.service;
-
-public class RoleService {
-
-	public RoleService() {
-		// TODO Auto-generated constructor stub
-	}
-}

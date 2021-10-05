@@ -1,8 +1,0 @@
-package com.moglix.employeemanagementsystem.dto;
-
-public class Role {
-	
-	private String Role_Id;
-	private String Role_Name;
-
-}

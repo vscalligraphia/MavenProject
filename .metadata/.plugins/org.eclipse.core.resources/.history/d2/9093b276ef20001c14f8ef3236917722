@@ -1,5 +1,0 @@
-package com.moglix.employeemanagementsystem.service;
-
-public interface EmployeeServiceImpl {
-
-}
