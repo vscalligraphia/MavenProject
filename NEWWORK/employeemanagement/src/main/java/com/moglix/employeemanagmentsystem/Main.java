@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.moglix.employeemanagementsystem.dto.Employee;
-import com.moglix.employeemanagementsystem.service.EmployeeService;
+import com.moglix.employeemanagementsystem.service.EmployeeServiceI;
 import com.moglix.employeemanagementsystem.service.EmployeeServiceImpl;
 
 public class Main {
@@ -21,20 +21,16 @@ public class Main {
 		//Spring 2 config Annotation based
 		//xml based===>.xml===> config===>till spring 3.0===>4.0
 		
-		EmployeeService employeeService= applicationContext.getBean(EmployeeService.class);
+		EmployeeServiceI employeeServiceI= applicationContext.getBean(EmployeeServiceI.class);
 		
-		Employee employee=new Employee("Vishal",100,"DElhi");
+		Employee employee=new Employee();
 		//employee object
 		
 		String result= 
 		
-		
-		
-		Employee employee = new Employee();
-
 		// EmployeeServiceDemo employeeServiceDemo = new EmployeeServiceDemo();
 
-		EmployeeServiceImpl employeeServiceDemo = EmployeeService.getInstance();
+		//EmployeeService employeeService = EmployeeService.getInstance();
 
 		employee.setEmpID("123");
 		employee.setEmpFirstName("Vishal");
@@ -49,8 +45,8 @@ public class Main {
 
 		
 		  
-		  String result = employeeServiceDemo.addEmpployee(employee);
-		  System.out.println(result);
+		  String result1 = employeeServiceI.addEmpployee(employee);
+		  System.out.println(result1);
 		 
 //		  List<Employee> yut = ;
 //		  
@@ -65,12 +61,12 @@ public class Main {
 		  
 		  
 		  
-		  String result2= employeeServiceDemo.deleteEmployeeById("123");
+		  String result2= employeeServiceI.deleteEmployeeById("123");
 		  System.out.println(result2+"\nDELETED");
 		  
 		 
 
-		Employee employee2 = employeeServiceDemo.getEmployeeById("123");
+		Employee employee2 = employeeServiceI.getEmployeeById("123");
 
 		if (employee2 == null) {
 
@@ -82,7 +78,7 @@ public class Main {
 			System.out.println("EXISTS");
 		}
 
-		List<Employee> employees = employeeServiceDemo.getEmployees();
+		List<Employee> employees = employeeServiceI.getEmployees();
 		
 		
 		System.out.println("EMPLoYEE");
@@ -95,7 +91,7 @@ public class Main {
 
 		// employeeService.deleteAllEmployees();
 
-		String updateStatus = employeeServiceDemo.updateEmployee("Vissss", employee);
+		String updateStatus = employeeServiceI.updateEmployee("Vissss", employee);
 		System.out.println(updateStatus);
 
 	}

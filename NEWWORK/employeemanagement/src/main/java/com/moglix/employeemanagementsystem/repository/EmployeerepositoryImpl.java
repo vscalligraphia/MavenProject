@@ -1,14 +1,13 @@
 package com.moglix.employeemanagementsystem.repository;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.moglix.employeemanagementsystem.dto.Employee;
 
-@Component
+@Repository   //It will implement RepositoryImpl
 public class EmployeerepositoryImpl implements EmployeeRepository {
 
 	private EmployeerepositoryImpl() {
